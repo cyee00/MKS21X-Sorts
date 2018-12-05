@@ -11,11 +11,12 @@ public class Sorts{
   }
 
   public static void selectionSort(int [] ary) {
-    for (int i=0;i<ary.length;i++){
+    for (int i=0;i<ary.length;){
       int x=ary[smallest(ary,i)];
       ary[smallest(ary,i)]=ary[i];
       ary[i]=x;
       System.out.println(printArray(ary));
+      i++;
     }
   }
 
