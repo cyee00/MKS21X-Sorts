@@ -1,23 +1,27 @@
 public class Sorts{
-  public static void selectionSort(int [] ary) {
-    int x=ary[0];
+
+  private static int smallest(int[] ary,int n){//returns index of smallest
     int index=0;
-    for (int n=0;n<ary.length;n++){
-      for (int i=n;i<ary.length;i++){
-        int smallest=ary[n];
-        if (ary[i]<=smallest){
-          smallest=ary[i];
-          index=i;
-        }
+    for (int i=n;i<ary.length;i++){
+      if(ary[i]<=ary[index]){
+        index=i;
       }
-      x=ary[index];
-      System.out.println("min value: "+ary[index]);
-      ary[index]=ary[n];
-      System.out.println("ary[index] should get replaced by "+ary[n]+": "+ary[index]);
-      ary[n]=x;
-      System.out.println("min value should now be at index"+n+": "+ary[index]);
     }
-  }  public static String printArray(int[] ary) {
+    return index;
+  }
+
+  public static void selectionSort(int [] ary) {
+    for (int i=0;i<ary.length;i++){
+      int x=ary[smallest(ary,i)];
+      System.out.println("Smallest value: "+x);
+      ary[smallest(ary,i)]=ary[i];
+      ary[i]=x;
+    }
+  }
+
+
+  //Testing
+  public static String printArray(int[] ary) {
       String output = "[";
       for(int i=0; i<ary.length-1; i++) {
         output += ary[i] + ", ";
