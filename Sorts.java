@@ -16,6 +16,7 @@ public class Sorts{
       System.out.println("Smallest value: "+x);
       ary[smallest(ary,i)]=ary[i];
       ary[i]=x;
+      System.out.println(printArray(ary));
     }
   }
 
