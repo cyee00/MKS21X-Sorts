@@ -13,7 +13,6 @@ public class Sorts{
   public static void selectionSort(int [] ary) {
     for (int i=0;i<ary.length;i++){
       int x=ary[smallest(ary,i)];
-      System.out.println("Smallest value: "+x);
       ary[smallest(ary,i)]=ary[i];
       ary[i]=x;
       System.out.println(printArray(ary));
