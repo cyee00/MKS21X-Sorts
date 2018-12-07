@@ -10,14 +10,47 @@ public class Sorts{
     return index;
   }
 
+  /**Selection sort of an int array.
+    *Upon completion, the elements of the array will be in increasing order.
+    *@param data  the elements to be sorted.
+    */
   public static void selectionSort(int [] ary) {
     for (int i=0;i<ary.length;i++){
       int x=ary[smallest(ary,i)]; //find the smallest val in rest of array, assign x to it
+      System.out.println("min: "+x);
       ary[smallest(ary,i)]=ary[i]; //replace the smallest val with the current index
       ary[i]=x; //replace current index with smallest val
       System.out.println(printArray(ary));
     }
   }
+
+  private static boolean sorted(int[]ary){
+    for (int i=0;i<ary.length-1;i++){
+      if (ary[i]>ary[i+1]){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**Bubble sort of an int array.
+   *Upon completion, the elements of the array will be in increasing order.
+   *@param data  the elements to be sorted.
+   */
+   public static void bubbleSort(int[] data){
+     int length = data.length;
+     while (!sorted(data)){
+       for (int i=0;i<length-1;i++){
+         if (data[i]>data[i+1]){
+           int swap=data[i];
+           data[i]=data[i+1];
+           data[i+1]=swap;
+         }
+       }
+       System.out.println(printArray(data));
+       length--;
+     }
+   }
 
 
   //Testing
@@ -39,7 +72,7 @@ public class Sorts{
       int[] test_a = { 3, 4, 7, 1, 6, 2, 8, 6 };
       System.out.println(printArray(test_a));               // [3, 4, 7, 1, 6, 2, 8, 6]
 
-      selectionSort(test_a);
+      bubbleSort(test_a);
 
       sorted = printArray(test_a);
       System.out.println(sorted);               // [1, 2, 3, 4, 6, 6, 7, 8]
@@ -49,12 +82,12 @@ public class Sorts{
       } else {
         System.out.println("TEST CASE - FAIL");
       }
-/*
+
       // 12 nums, [0:20]
       int[] test_b = { 17, 1, 19, 2, 18, 20, 1, 18, 11, 13, 5, 17 };
       System.out.println(printArray(test_b));   // [17, 1, 19, 2, 18, 20, 1, 18, 11, 13, 5, 17]
 
-      selectionSort(test_b);
+      bubbleSort(test_b);
 
       sorted = printArray(test_b);
       System.out.println(sorted);               // [1, 1, 2, 5, 11, 13, 17, 17, 18, 18, 19, 20]
@@ -69,7 +102,7 @@ public class Sorts{
       int[] test_c = { 14, 32, 19, 66, 61, 96, 33, 48, 30, 100, 65, 37, 15, 85, 1, 35, 9, 57, 50, 52 };
       System.out.println(printArray(test_c));   // [14, 32, 19, 66, 61, 96, 33, 48, 30, 100, 65, 37, 15, 85, 1, 35, 9, 57, 50, 52]
 
-      selectionSort(test_c);
+      bubbleSort(test_c);
 
       sorted = printArray(test_c);
       System.out.println(sorted);               // [1, 9, 14, 15, 19, 30, 32, 33, 35, 37, 48, 50, 52, 57, 61, 65, 66, 85, 96, 100]
@@ -79,21 +112,6 @@ public class Sorts{
       } else {
         System.out.println("TEST CASE - FAIL");
       }
-*/
-    }/*public static void main(String[]args){
-      int[] ary = new int[5];
-      /*for (int i=0;i<ary.length;i++){
-        ary[i]=Math.random();
-      }
-      ary[0]=23;
-      ary[1]=3;
-      ary[2]=2333;
-      ary[3]=231;
-      ary[4]=230;
-      System.out.println(java.util.Arrays.toString(ary));
-      System.out.println("\nTesting selectionSort");
-      System.out.println("\nselectionSort(ary) --> [1,2,3,4,5]");
-      Sorts.selectionSort(ary);
-      System.out.println(""+java.util.Arrays.toString(ary));
-    }*/
+
+    }
 }
