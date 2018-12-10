@@ -52,6 +52,15 @@ public class Sorts{
      }
    }
 
+   public static void insertionSort(int[] data){
+     if (data.length>1){
+       for (int i=1;i<data.length;i++){
+         if (data[i-1]<data[i]){
+           i++;
+         } else //find the index that it actually belongs at
+       }
+     }
+   }
 
   //Testing
   public static String printArray(int[] ary) {
