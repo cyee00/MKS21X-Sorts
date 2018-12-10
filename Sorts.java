@@ -57,7 +57,12 @@ public class Sorts{
        for (int i=1;i<data.length;i++){
          if (data[i-1]<data[i]){
            i++;
-         } else //find the index that it actually belongs at
+         } else { //find the index that it actually belongs at
+           for (int n=i-1;n>=0;n++){
+             if (data[n]<data[i]){//shift everything over
+             }
+           }
+         }
        }
      }
    }
