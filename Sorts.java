@@ -55,17 +55,22 @@ public class Sorts{
    public static void insertionSort(int[] data){
      if (data.length>1){
        for (int i=1;i<data.length;i++){
-         if (data[i-1]>data[i]){
-           int x = data[i];
-           data[i]=data[i-1];
-           data[i-1]=x;
-           for (int n=i-1;n>=0;n--){
-
+         int current=data[i];
+         int n=-1;
+         if (data[i-1]>current){
+           for (n=i-1;n>-1;n--){
+             data[n+1]=data[n];
+             System.out.println(printArray(data));
            }
          }
+         System.out.println(""+n);
+         if (n!=-1){
+           data[n]=current;
          }
-       }
-     }
+         System.out.println(i+"\n"+printArray(data));
+      }
+    }
+  }
 
   //Testing
   public static String printArray(int[] ary) {
@@ -76,7 +81,7 @@ public class Sorts{
       return output += ary[ary.length-1] + "]";
   }
 
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
 
       // Google random int generator
 
@@ -127,5 +132,9 @@ public class Sorts{
         System.out.println("TEST CASE - FAIL");
       }
 
+    }*/
+    public static void main(String[]args){
+      int[]test={0,2,3,4,1};
+      insertionSort(test);
     }
 }
