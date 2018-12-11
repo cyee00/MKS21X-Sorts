@@ -58,8 +58,12 @@ public class Sorts{
          if (data[i-1]<data[i]){
            i++;
          } else { //find the index that it actually belongs at
-           for (int n=i-1;n>=0;n++){
+           for (int n=i-1;n>=0;n--){
              if (data[n]<data[i]){//shift everything over
+               for (int x=n+1;x<i+1;x++){
+                 int val = data[x];
+                 data[x]=data[x+1]
+               }
              }
            }
          }
