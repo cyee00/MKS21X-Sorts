@@ -55,21 +55,17 @@ public class Sorts{
    public static void insertionSort(int[] data){
      if (data.length>1){
        for (int i=1;i<data.length;i++){
-         if (data[i-1]<data[i]){
-           i++;
-         } else { //find the index that it actually belongs at
+         if (data[i-1]>data[i]){
+           int x = data[i];
+           data[i]=data[i-1];
+           data[i-1]=x;
            for (int n=i-1;n>=0;n--){
-             if (data[n]<data[i]){//shift everything over
-               for (int x=n+1;x<i+1;x++){
-                 int val = data[x];
-                 data[x]=data[x+1]
-               }
-             }
+
            }
+         }
          }
        }
      }
-   }
 
   //Testing
   public static String printArray(int[] ary) {
