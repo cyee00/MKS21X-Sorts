@@ -56,18 +56,20 @@ public class Sorts{
      if (data.length>1){
        for (int i=1;i<data.length;i++){
          int current=data[i];
-         int n=-1;
+         //System.out.println("current that's being swapped: "+current);
          if (data[i-1]>current){
-           for (n=i-1;n>-1;n--){
-             data[n+1]=data[n];
-             System.out.println(printArray(data));
+           //System.out.println("insertion needed.");
+           for (int n=i-1;n>-1&&data[n]>current;n--){
+             //System.out.println("lan");
+             if (data[n]>current){
+               data[n+1]=data[n];
+               //System.out.println(printArray(data));
+               //System.out.println("n: "+n);
+             }
+             data[n]=current;
            }
          }
-         System.out.println(""+n);
-         if (n!=-1){
-           data[n]=current;
-         }
-         System.out.println(i+"\n"+printArray(data));
+         //System.out.println(""+printArray(data));
       }
     }
   }
@@ -134,7 +136,7 @@ public class Sorts{
 
     }*/
     public static void main(String[]args){
-      int[]test={0,2,3,4,1};
+      int[]test={0,3,2,4,1};
       insertionSort(test);
     }
 }
