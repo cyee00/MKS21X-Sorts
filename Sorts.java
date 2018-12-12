@@ -17,10 +17,10 @@ public class Sorts{
   public static void selectionSort(int [] ary) {
     for (int i=0;i<ary.length;i++){
       int x=ary[smallest(ary,i)]; //find the smallest val in rest of array, assign x to it
-      System.out.println("x: "+x);
+      //System.out.println("x: "+x);
       ary[smallest(ary,i)]=ary[i]; //replace the smallest val with the current index
       ary[i]=x; //replace current index with smallest val
-      System.out.println("after swapping:" +printArray(ary));
+      //System.out.println("after swapping:" +printArray(ary));
     }
   }
 
